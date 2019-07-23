@@ -1,16 +1,20 @@
 package board.core.common;
 
 public enum RespondCodeEnum {
-  SUCCESS(200),
-  FAILURE(500);
+  SUCCESS("200,Successful operation!"),
+  FAILURE("500,Operation failed...");
 
-  private int code;
+  private String code;
 
-  private RespondCodeEnum(int code) {
+  RespondCodeEnum(String code) {
     this.code = code;
   }
 
   public int getCode() {
-    return code;
+    return Integer.parseInt(this.code.split(",")[0]);
+  }
+
+  public String getMessage() {
+    return this.code.split(",")[1];
   }
 }

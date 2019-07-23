@@ -1,30 +1,26 @@
 package board.core.actor.msg;
 
 import akka.actor.typed.ActorRef;
-import board.core.entity.Project;
-import board.core.vo.Respond;
 
 public abstract class ProjectMessage implements Message {
 
   private ProjectMessage() {
   }
 
-  public static final class Reply extends ProjectMessage {
+  public static final class Get extends ProjectMessage {
 
-    public final Respond respond;
+    public final ActorRef<Message> replyTo;
 
-    public Reply(Respond respond) {
-      this.respond = respond;
+    public Get(ActorRef<Message> replyTo) {
+      this.replyTo = replyTo;
     }
   }
 
-  public static final class Create extends ProjectMessage {
+  public static final class Delete extends ProjectMessage {
 
-    public final Project project;
-    public final ActorRef<Reply> replyTo;
+    public final ActorRef<Message> replyTo;
 
-    public Create(Project project, ActorRef<Reply> replyTo) {
-      this.project = project;
+    public Delete(ActorRef<Message> replyTo) {
       this.replyTo = replyTo;
     }
   }

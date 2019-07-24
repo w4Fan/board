@@ -10,6 +10,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>board-core</module>
+    <module>board-actor</module>
+    <module>board-common</module>
   </modules>
 
   <parent>
@@ -24,11 +26,17 @@
     <lombok.version>1.18.8</lombok.version>
     <swagger.version>2.9.2</swagger.version>
     <junit.version>4.12</junit.version>
+    <guava.version>28.0-jre</guava.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.fans</groupId>
+        <artifactId>board.common</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+      </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
@@ -67,6 +75,11 @@
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger-ui</artifactId>
         <version>${swagger.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
